@@ -50,7 +50,7 @@ export default function OnlinePlay(){
         }
 
         try {
-            const response = await fetch(`http://localhost:5000/create-room`, {
+            const response = await fetch(`https://pv-p-tic-tac-toe-game-server.vercel.app/create-room`, {
                 method : 'POST',
                 credentials: 'include',
                 headers : {
@@ -99,7 +99,7 @@ export default function OnlinePlay(){
 
         try {
 
-            const res = await fetch(`http://localhost:5000/join-room`, {
+            const res = await fetch(`https://pv-p-tic-tac-toe-game-server.vercel.app/join-room`, {
                 method : 'POST',
                 credentials : 'include',
                 headers : {
@@ -144,7 +144,7 @@ export default function OnlinePlay(){
     //FUNCTION TO POLL ROOM STATUS
     const checkRoomStatus = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/room-status`, {
+            const response = await fetch(`https://pv-p-tic-tac-toe-game-server.vercel.app/room-status`, {
                 method: 'GET',
                 credentials: 'include',
                 headers: {

@@ -45,7 +45,7 @@ export default function OnlinePlayMain({player1, player2, side}){
 
     //FUNCTION TO FETCH THE CURRENT BOARD STATUS FROM THE SERVER
     const fetchBoardStatus = async () => {
-        const res = await fetch('http://localhost:5000/get-board-status', {
+        const res = await fetch('https://pv-p-tic-tac-toe-game-server.vercel.app/get-board-status', {
             method: 'GET',
             credentials: 'include',
         })

@@ -11,7 +11,7 @@
 
     const syncBoardWithBackend = async (row, col, actualChance, changed) => {
         try{
-            const res = await fetch(`http://localhost:5000/info-about-player-status`, {
+            const res = await fetch(`https://pv-p-tic-tac-toe-game-server.vercel.app/info-about-player-status`, {
                 method : 'POST',
                 credentials : 'include',
                 headers : {
