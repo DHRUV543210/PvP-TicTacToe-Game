@@ -117,7 +117,7 @@ app.get('/room-status', (req, res) => {
         if(room && gameRooms[room]){
             const gameReady = gameRooms[room].paired && gameRooms[room].created;
 
-            return res.json({creator: gameRooms[room].creator, joiner: gameRooms[room].joiner, Ready: gameReady});
+            return res.status(200).json({creator: gameRooms[room].creator, joiner: gameRooms[room].joiner, Ready: gameReady});
         }
         
         return res.status(400).json({issue : 'No Room found in session'});
