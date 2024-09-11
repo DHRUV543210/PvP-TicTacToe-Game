@@ -7,7 +7,7 @@ const app = express();
 
 //MIDDLEWARES
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://pv-p-tic-tac-toe-game-server.vercel.app',
     credentials: true
 }));
 
