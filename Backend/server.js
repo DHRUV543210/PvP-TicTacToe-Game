@@ -63,7 +63,7 @@ app.post('/create-room', (req, res)=>{
         req.session.room = key;
         req.session.created = true;
         
-        res.status(200).json({message: 'Room Created', sessionID: req.sessionID});
+        res.status(200).json({message: 'Room Created', sessionID: req.sessionID, roomNo: key , room: gameRooms[key]});
     }
     catch (error) {
         console.error("Creating Room Error, ", error);
@@ -90,7 +90,7 @@ app.post('/join-room', (req, res) => {
             req.session.room = key;
             req.session.paired = true;
 
-            res.status(200).json({message : "Room Joined", sessionID : req.sessionID});
+            res.status(200).json({message : "Room Joined", sessionID : req.sessionID, roomNo: key, room: gameRooms[key]});
         }
         
         else {
@@ -115,14 +115,12 @@ app.get('/room-status', (req, res) => {
 
         //CHECK IF BOTH PLAYER ARE IN THE ROOM
         if(room && gameRooms[room]){
-
             const gameReady = gameRooms[room].paired && gameRooms[room].created;
 
-            res.json({creator: gameRooms[room].creator, joiner: gameRooms[room].joiner, Ready: gameReady});
+            return res.json({creator: gameRooms[room].creator, joiner: gameRooms[room].joiner, Ready: gameReady});
         }
-        else{
-            response.status(400).json({issue : 'No Room found in session'});
-        }
+        
+        return res.status(400).json({issue : 'No Room found in session'});
     }
     catch (error) {
         console.error(error);

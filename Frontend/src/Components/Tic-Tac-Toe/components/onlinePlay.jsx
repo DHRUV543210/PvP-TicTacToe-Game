@@ -68,6 +68,10 @@ export default function OnlinePlay(){
                 return;
             }
 
+            if(result){
+                console.log(result.roomNo, result.room);
+            }
+
             setResponseMess(result);
             setCreatedRoom(true);
 
@@ -109,6 +113,11 @@ export default function OnlinePlay(){
             })
 
             const result = await res.json();
+
+            if(result){
+                console.log(result.roomNo, result.room);
+            }
+
             if(result.issue && result.issue.length ){
                 setIssue(result.issue);
                 alert(issue);
@@ -175,22 +184,10 @@ export default function OnlinePlay(){
         
         let intervalID;
         if(createdRoom || joinedRoom){
-            const checkStatus = async () => {
-                await checkRoomStatus();
-                if(!areReady){
-                    intervalID = setTimeout(checkStatus, 1000);
-                }
-            };
-            intervalID = setTimeout(checkStatus, 1000);
+            intervalID = setInterval(checkRoomStatus, 1000);
         }
-            return () => clearTimeout(intervalID);
-        },[createdRoom, joinedRoom]);
-
-        // let intervalID;
-        // if(createdRoom || joinedRoom){
-        //     intervalID = setInterval(checkRoomStatus, 1000);
-        // }
-        // return ()=> clearInterval(intervalID);
+        return ()=> clearInterval(intervalID);
+    }, [createdRoom, joinedRoom]);
 
     useEffect(()=>{
         console.log(responseMess);
