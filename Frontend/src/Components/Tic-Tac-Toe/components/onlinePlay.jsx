@@ -175,10 +175,22 @@ export default function OnlinePlay(){
         
         let intervalID;
         if(createdRoom || joinedRoom){
-            intervalID = setInterval(checkRoomStatus, 1000);
+            const checkStatus = async () => {
+                await checkRoomStatus();
+                if(!areReady){
+                    intervalID = setTimeout(checkStatus, 1000);
+                }
+            };
+            intervalID = setTimeout(checkStatus, 1000);
         }
-        return ()=> clearInterval(intervalID);
-    }, [createdRoom, joinedRoom]);
+            return () => clearTimeout(intervalID);
+        },[createdRoom, joinedRoom]);
+
+        // let intervalID;
+        // if(createdRoom || joinedRoom){
+        //     intervalID = setInterval(checkRoomStatus, 1000);
+        // }
+        // return ()=> clearInterval(intervalID);
 
     useEffect(()=>{
         console.log(responseMess);
