@@ -7,7 +7,7 @@ const app = express();
 
 //MIDDLEWARES
 app.use(cors({
-    origin: 'https://pv-p-tic-tac-toe-game-server.vercel.app',
+    origin: 'https://pv-p-tic-tac-toe-game-frontend.vercel.app/',
     credentials: true
 }));
 
