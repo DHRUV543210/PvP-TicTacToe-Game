@@ -1,0 +1,399 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tictactoeContainer{
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    background-color: black;
+    /* justify-content: space-between; */
+}
+
+.heading{
+    width: 100%;
+    height: 13%;
+    background-color: rgb(172, 70, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading h1{
+    color: white;
+    text-align: center;
+    font-size: 58px;
+    text-shadow: 2px 2px rgb(80, 80, 80);
+    animation: upAndDown 8s linear infinite;
+}
+
+.game{
+    height: 81%;
+    background-color: white;
+    width: 100%;
+    margin-top: 20px;
+
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    background-image: url('./Images/gojo.webp');
+    background-size: cover;
+    background-position: left right;
+    animation: fade 11s;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* gap: 80px; */
+}
+
+.boxTic{
+    display: grid;
+    position: absolute;
+    left:50%;
+    top: 15%;
+    transform: translateY(100%);
+    transform: translateX(-50%);
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    margin-top: 100px;
+    background-color: rgba(236, 236, 236,0.8);
+
+    animation: fade 4s ease-in , boxBoxShadow 10s infinite ease;
+}
+
+.smallBoxes{
+    width: 106.6667px;
+    height: 106.6667px;
+    border: 1px solid black;
+    transition: all 0.2s ease-out;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.smallBoxes:hover{
+    /* cursor: pointer; */
+    transform: scale(1.06);
+    background-color: rgb(228, 228, 228);
+}
+
+.h1InGame{
+    font-size: 35px;
+    margin-top: 35px;
+    color: rgb(206, 206, 206);
+}
+
+.h1InGame.fade{
+    animation: fade 0.5s ease-in;
+}
+
+.btnTic{
+    width: 150px;
+    align-self: center;
+    padding: 15px 5px;
+    border-radius: 14px;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 15px;
+    animation: borderColor 5s infinite forwards;
+    background-color: rgb(240, 240, 240);
+    color: rgb(69, 69, 69);
+    border: 5px solid black;
+    box-shadow: 0px 0px 7px rgb(156, 156, 156);
+    transition: all 0.4s;
+}
+
+.btnTic.hide{
+    display: none;
+    /* transform: translateX(-10%); */
+}
+
+.btnTic:hover{
+    cursor:pointer;
+    transform: scale(1.2);
+}
+
+.formTic{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+}
+
+.roomInput{
+    padding: 15px;
+
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+
+    border: 3.4px solid green;
+    border-radius: 5px;
+    
+    font-size: 20px;
+    box-sizing: border-box;
+
+    /* margin-right: 20px; */
+
+    /* transition: all 1s; */
+    /* transform: translateY(50%); */
+    /* animation: reduceInputScale 0.4s forwards; */
+}
+
+
+.keyfield{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 25px;
+}
+
+.generateRandomKey{
+    width: auto;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid rgb(18, 195, 18);
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(0, 236, 0);
+    transition: all 0.2s;
+
+    align-self: center;
+}
+
+.generateRandomKey:hover{
+    transform: scale(1.05);
+    background-color: green;
+    border: 1px solid rgb(0, 59, 0);
+    cursor: pointer;
+}
+
+
+.victory{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0 , 0, 0.73);
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.victory-modal{
+    position: relative;
+    width: 75%;
+    background-color: white;
+    height: 200px;
+    left: 13%;
+    top: 35px;
+    animation: scaleUp 0.5s forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: transparent;
+    /* z-index: 2; */
+
+    animation: scaleUp 1s forwards;
+}
+
+.victory-modal .upperDiv, .lowerDiv{
+    position: absolute;
+    /* height: 59px; */
+    width: 100%;
+    animation: openGate 1s ;
+    transition: transform 0.5s ease;
+}
+
+.upperDiv{
+    top: 0;
+    background-image: url('./Images/sp01.jpg');
+    border-radius: 0px 0px 14px 14px;
+    background-size: cover;
+    height: 100px;
+    /* transform-origin: bottom top; */
+}
+
+.lowerDiv{
+    bottom: 0;
+    background: url('./Images/sp03.jpg');
+    border-radius: 14px 14px 0px 0px;
+    background-size: cover;
+    height: 100px;
+    /* transform-origin: top bottom; */
+}
+
+.upperDiv.translateUp{
+    transform: translateY(-100%);
+}
+
+.lowerDiv.translateLow{
+    transform: translateY(100%);
+}
+
+
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes borderColor{
+    0%{
+        border: 5px green;
+    }
+    25%{
+        border: 5px solid yellow;
+    }
+    50%{
+        border: 5px solid orange;
+    }
+    
+    75%{
+        border: 5px solid red;
+    }
+    100%{
+        border: 5px solid purple;
+    }
+}
+
+@keyframes scaleUp{
+    from{
+        transform: scale(0.5);
+    }
+    to{
+        transform: scale(1.1);
+    }
+}
+
+@keyframes shake{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(5deg);
+    }
+    50%{
+        transform: rotate(-5deg);
+    }
+    75%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+
+}
+
+@keyframes openGate{
+    from{
+        transform: scaleY(0);
+    }
+    to{
+        transform: scaleY(1);
+    }
+}
+
+@keyframes boxBoxShadow{
+    0%{
+        box-shadow: 0px 0px 77px rgb(116, 213, 255);
+    }
+    25%{
+        box-shadow: 0px 0px 77px rgb(116, 255, 167);
+    }
+    50%{
+        box-shadow: 0px 0px 77px rgb(204, 255, 116)
+    }
+    65%{
+        box-shadow: 0px 0px 77px rgb(255, 213, 116)
+    }
+    75%{
+        box-shadow: 0px 0px 77px rgb(255, 179, 116)
+    }
+    85%{
+        box-shadow: 0px 0px 77px rgb(254, 121, 121)
+    }
+    100%{
+        box-shadow: 0px 0px 77px rgb(255, 116, 239)
+    }
+}
+
+@keyframes reduceInputScale{
+    from{
+        width: 90%;
+        height: 90%;
+        transform: translateY(50%);
+    }
+    to{
+        width: 350px;
+        height: 60px;
+        transform: translateY(0%);
+    }
+}
+
+@media (max-width: 768px){
+    .roomInput{
+        font-size: 18px;
+    }
+
+    .generateRandomKey{
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    
+    .victory-modal{
+        height: 200px;
+    }
+    .victory-modal .upperDiv, .lowerDiv{
+        height: 99px;
+    }
+    .game{
+        background-position: 70% 70%;
+    }
+}
+
+@media(max-width : 480px)
+{
+    .roomInput{
+        font-size: 14px;
+    }
+
+    .generateRandomKey{
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
+
+/* @keyframes upAndDown{
+    0%{
+        transform: scale(0.8);
+    }
+    100%{
+        transform: scale(1);
+    }
+} */
+

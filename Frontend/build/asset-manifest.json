@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.546c919f.css",
+    "main.js": "/static/js/main.8ee5bda2.js",
+    "static/js/453.53cb6ab8.chunk.js": "/static/js/453.53cb6ab8.chunk.js",
+    "static/media/stranger-things.mp3": "/static/media/stranger-things.2844d3417a88c2b3c572.mp3",
+    "static/media/sp01.jpg": "/static/media/sp01.996ed41d0279333ff1c7.jpg",
+    "static/media/gojo.webp": "/static/media/gojo.18c5a43c715d84a25626.webp",
+    "static/media/Win.wav": "/static/media/Win.533af61850074cf4190d.wav",
+    "static/media/scifi-tap.wav": "/static/media/scifi-tap.7dd837f95aa759588404.wav",
+    "static/media/scifi-hover.wav": "/static/media/scifi-hover.2af9eb25ac74f7be4f55.wav",
+    "static/media/sp03.jpg": "/static/media/sp03.43cd01f2d28fb580ef69.jpg",
+    "static/media/door-open.mp3": "/static/media/door-open.9a39072df3278692ef78.mp3",
+    "index.html": "/index.html",
+    "main.546c919f.css.map": "/static/css/main.546c919f.css.map",
+    "main.8ee5bda2.js.map": "/static/js/main.8ee5bda2.js.map",
+    "453.53cb6ab8.chunk.js.map": "/static/js/453.53cb6ab8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.546c919f.css",
+    "static/js/main.8ee5bda2.js"
+  ]
+}
